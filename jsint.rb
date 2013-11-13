@@ -11,21 +11,21 @@ get '/' do
 end
 
 post '/' do
-  # Pony.mail :to => 'my.mail@mail.com',
-  #           :from => 'from.mail@mail.com',
-  #           :subject => "Thanks for request, #{params[:name]}!",
-  #           :body => erb(:email),
-  #           :via => :smtp,
-  #           :via_options => {
-  #             :address => 'smtp.gmail.com',
-  #             :port => '587',
-  #             :enable_starttls_auto => true,
-  #             :user_name => 'user@mail.com',
-  #             :password => 'clearpass',
-  #             :authentication => :plain
-  #           }
+  Pony.mail :to => 'john@doe.com',
+            :from => 'user@mail.com',
+            :subject => "Thanks for request, #{params[:name]}!",
+            :body => haml(:email, :layout => false),
+            :via => :smtp,
+            :via_options => {
+              :address => 'smtp.gmail.com',
+              :port => '587',
+              :enable_starttls_auto => true,
+              :user_name => 'user@mail.com',
+              :password => 'pass',
+              :authentication => :plain
+            }
 
-  message = "#{params}"
+  message = "#{params} - send successfully!"
 end
 
 not_found do

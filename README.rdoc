@@ -1,10 +1,10 @@
 == JSint
-Simple Ajax Sinatra
+Simple AJAX Sinatra app
 
 * Ruby ruby-2.0.0-p247
-* Sinatra sinatra 1.4.4
+* Sinatra 1.4.4
 
-Please use shotgun in delelop
+You may want to use shotgun in delelopment:
 
   gem install shotgun
   shotgun jsint.rb

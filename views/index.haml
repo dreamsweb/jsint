@@ -4,68 +4,22 @@
   %input{ type: "text", name: "name" }
   %input{ type: "submit", value: "Send" }
 
-#msg
-
 #dialog-form{ title: "Create new user" }
   %p.validateTips All form fields are required
 
-  %form
+  %form{ action: "/modal" }
     %fieldset
       %label{ for: "name" } Name
       %input#name.text.ui-widget-content.ui-corner-all{ type: "text", name: "name", value: "name" }
       %label{ for: "email" } Email
-      %input#email.ui-widget-content.ui-corner-all{ type: "text", name: "email", value: "email" }
+      %input#email.text.ui-widget-content.ui-corner-all{ type: "text", name: "email", value: "email" }
       %label{ for: "comment" } Comment
-      %input#comment.ui-widget-content.ui-corner-all{ type: "text", name: "password", value: "comment" }
+      %input#comment.text.ui-widget-content.ui-corner-all{ type: "text", name: "comment", value: "comment" }
 
-%button.popover New
+%button.popover Dialog
 
-:javascript
-  $(document).ready(function() {
+%br
 
-    // basic ajax form submit
-    $('form').on('submit', function(e) {
-      e.preventDefault();
-      var form = $(this);
+#msg
 
-      $.ajax({
-       url: "/",
-       type: 'POST',
-       data: form.serialize(),
-       success: function(response) {
-         $('#msg').html(response).slideDown();
-       },
-       error: function(request, errorType, errorMessage) {
-         $("#msg").append(errorMessage);
-       },
-       beforeSend: function() {
-         $('.loader').show();
-       },
-       complete: function() {
-         $('.loader').hide();
-       }
-      });
-
-      // $('.loader').show();
-
-      // $.post("/", form.serialize(), function(response) {
-      //   $('#msg').html(response).slideDown();
-      // }).always(function() {
-      //   $('.loader').hide();
-      // });
-    });
-
-    // popover form submit
-    $('.popover').on('click', function() {
-      $("#dialog-form").dialog("open");
-    });
-
-    $("#dialog-form").dialog({
-      autoOpen: false,
-      height: 390,
-      width: 300,
-      modal: true,
-      buttons: { Cancel: function() { $(this).dialog("close"); } }
-    });
-
-  });
+%script{ :src => "javascripts/ajax.js" }
