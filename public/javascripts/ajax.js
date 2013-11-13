@@ -6,16 +6,17 @@ $(document).ready(function() {
       type: 'POST',
       data: form.serialize(),
       success: function(response) {
-       $('#msg').html(response).slideDown();
+        form.each(function() { this.reset(); });
+        $('#msg').html(response).slideDown();
       },
       error: function(request, errorType, errorMessage) {
-       $("#msg").html('<p style="color: red;">' + errorMessage + '</p>');
+        $("#msg").html('<p style="color: red;">' + errorMessage + '</p>');
       },
       beforeSend: function() {
-       $('.loader').show();
+        $('.loader').show();
       },
       complete: function() {
-       $('.loader').hide();
+        $('.loader').hide();
       }
     });
 

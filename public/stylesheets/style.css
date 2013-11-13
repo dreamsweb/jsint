@@ -5,12 +5,16 @@ body {
 
 .loader {
   display: none;
-  width: 32px;
-  height: 32px;
-  background: url('../images/ajax-loader.gif') no-repeat;
-  position: absolute;
-  top: 10%;
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  background: url('../images/ajax-loader.gif') #FFF no-repeat center;
+  top: 50%;
   left: 50%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 /* jquery ui fonts */
