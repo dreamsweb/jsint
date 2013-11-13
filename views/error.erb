@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <title>404 page not found</title>
+  <link href='http://fonts.googleapis.com/css?family=Istok+Web&subset=latin,cyrillic-ext' 
+        rel='stylesheet' type='text/css'>
+  <style type="text/css">
+    ::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+    ::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+
+    html {
+      padding: 30px 10px;
+      font-size: 20px;
+
+      line-height: 1.4;
+      color: #737373;
+      background: #f0f0f0;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
+    body {
+      max-width: 600px;
+      _width: 600px;
+      padding: 30px 20px 50px;
+      border: 1px solid #b3b3b3;
+      border-radius: 4px;
+      margin: 0 auto;
+      box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
+      background: #fff;
+      font-family: 'Istok Web';
+    }
+
+    .container {
+      width: 500px;
+      margin:20px auto;
+      text-align: right;
+      position: relative;
+      padding: 0;
+    }
+    .container img {
+      position: absolute;
+      top:-20px;
+      left:0px;
+    }
+
+    h1 { font-size: 100px; color: #35C3CD; text-shadow: 1px 1px 1px #B3B3B3; }
+
+    h2 { font-size: 32px; margin: 0; }
+    p { font-size: 14px; margin: 0; }
+    p a { color: #35C3CD; text-decoration: none; }
+    p a:hover { border-bottom: 1px dashed; }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="images/logo.png" alt="dwwd logo">
+    <h1><%= @err %> :(</h1>
+    <h2><%= @message %></h2>
+    <p><%= @hint %> or <a href="/">back to home page</a></p>
+  </div>
+</body>
+</html>

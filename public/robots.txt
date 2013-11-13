@@ -1,0 +1,6 @@
+User-agent: *
+Disallow:
+
+User-agent: Yandex
+Disallow:
+Host: egor5.w2s.ru

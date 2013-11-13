@@ -1,0 +1,12 @@
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+
+RewriteEngine On
+
+#rewrite www
+RewriteCond %{HTTP_HOST}   !^www\.example\.com [NC]
+RewriteCond %{HTTP_HOST}   !^$
+RewriteRule ^/(.*)         http://www.example.com/$1 [L,R]
+
+</IfModule>

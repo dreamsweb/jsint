@@ -1,0 +1,42 @@
+.loader
+
+%form{ action: "/", method: "POST" }
+  %input{ type: "text", name: "name" }
+  %input{ type: "submit", value: "Send" }
+
+#msg
+
+:javascript
+  $(document).ready(function() {
+      $('form').on('submit', function(e) {
+        e.preventDefault();
+        var form = $(this);
+
+        $.ajax({
+         url: "/",
+         type: 'POST',
+         data: form.serialize(),
+         success: function(response) {
+           $('#msg').html(response).slideDown();
+         },
+         error: function(request, errorType, errorMessage) {
+           $("#msg").append(errorMessage);
+         },
+         beforeSend: function() {
+           $('.loader').show();
+         },
+         complete: function() {
+           $('.loader').hide();
+         }
+        });
+
+        // $('.loader').show();
+
+        // $.post("/", form.serialize(), function(response) {
+        //   $('#msg').html(response).slideDown();
+        // }).always(function() {
+        //   $('.loader').hide();
+        // });
+
+      });
+  });
